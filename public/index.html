@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>NodeJS Starter Application</title>
+    <title>Kevin Brenneman's Node.js</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,15 +12,53 @@
   <body>
     <table>
       <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">
-        </td>
         <td>
-          <h1 id="message">Hello World!</h1>
-          <p class='description'></p> Thanks for creating a <span class = "blue">NodeJS Starter Application</span>.
+		 <h1 id="message3">Kevin Brenneman</h1>
+          <h3 id="message"></h3>
+		  <h3 id="message1"></h3>
         </td>
       </tr>
     </table>
+<script>
+/*
+Kevin Brenneman
+*/
+var d = new Date();
+var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+var dayString = days[d.getDay()];
+document.getElementById("message").innerHTML = "Today is: " + dayString;
+
+var myVar = setInterval(function(){ getTime() }, 1000);
+	
+function getTime(){
+var d = new Date();
+var seconds = d.getSeconds();
+//make it so that seconds always has two digits
+if ( seconds <10)
+{
+	seconds = "0" + seconds.toString();
+}
+var minutes = d.getMinutes();
+//make it so that miuntes always has two digits
+if ( minutes <10)
+{
+	minutes = "0" + minutes.toString();
+}
+var hours = d.getHours();
+var AMPM = " AM ";
+//keep our time in 12 hour format and set AMPM
+if(hours > 12)
+{
+	hours = hours -12;
+	AMPM = " PM ";
+}
+//set the time string
+var t = hours  + ": " + minutes + " : " + seconds +" " + AMPM;
+//change the text in time
+document.getElementById("message1").innerHTML =  t;
+}
+
+</script>
   </body>
 
 </html>
